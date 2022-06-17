@@ -1,0 +1,7 @@
+from masonite.routes import Route
+
+from __module__.__pluralize__.controllers.__class__ import __class__
+
+ROUTES = [
+    Route.get("/__pluralize__", __class__.show),
+]

@@ -1,0 +1,5 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<div class="title">Great, you have successfully created your view for <i>"__singularize_cap__"</i> Module.</div>
+{% endblock %}

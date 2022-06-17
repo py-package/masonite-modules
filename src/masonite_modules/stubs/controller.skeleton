@@ -1,0 +1,10 @@
+"""A __class__ Module."""
+from masonite.views import View
+from masonite.controllers import Controller
+
+
+class __class__(Controller):
+    """__class__ Controller Class."""
+
+    def show(self, view: View):
+        return view.render("__pluralize__:index")

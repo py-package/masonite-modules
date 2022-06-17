@@ -1,0 +1,8 @@
+"""__singularize_cap__ Model."""
+from masoniteorm.models import Model
+
+
+class __singularize_cap__(Model):
+    """__singularize_cap__ Model."""
+
+    __fillable__ = []

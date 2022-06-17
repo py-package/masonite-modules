@@ -1,12 +1,13 @@
 import importlib
 import glob
-from pathlib import Path
 from masonite.utils.location import base_path
-from os.path import dirname, basename, isfile, join
+from os.path import dirname, isfile, join
+from .commands.module_create import ModuleCreateCommand
+from .commands.module_install import ModuleInstallCommand
+from masonite.configuration import config
 
 
 ROOT_PATH = base_path()
-MODULES_PATH = join(ROOT_PATH, 'modules')
 
 class MasoniteModule:
     
@@ -19,19 +20,28 @@ class MasoniteModule:
     
     @staticmethod
     def get_modules():
-        modules = glob.glob(join(MODULES_PATH, "**/routes/*.py"))
-        masonite_modules = []
-        
-        for module in modules:
-            if isfile(module):
-                masonite_modules += [importlib.import_module(MasoniteModule.get_module_name(module))]
-        return masonite_modules
+        module_config = config("modules")
+        if module_config:
+            module_name = module_config.get("name", "modules")
+            modules = glob.glob(join(base_path(), module_name, "**/routes/*.py"))
+            masonite_modules = []
+            
+            for module in modules:
+                if isfile(module):
+                    masonite_modules += [importlib.import_module(MasoniteModule.get_module_name(module))]
+            return masonite_modules
+        return []
         
     def register(self):
-        modules = glob.glob(join(MODULES_PATH, "**/routes/*.py"))
-        for module in modules:
-            if isfile(module):
-                module_path = dirname(module).replace(MODULES_PATH, '').split('/')[1]
-                self.application.make("view").add_namespaced_location(
-                    module_path, f"modules.{module_path}/templates"
-                )
+        module_config = config("modules")
+        if module_config:
+            module_name = module_config.get("name", "modules")
+            modules = glob.glob(join(base_path(), module_name, "**/routes/*.py"))
+            for module in modules:
+                if isfile(module):
+                    template_path = dirname(module).replace(join(base_path(), module_name), '').split('/')[1]
+                    self.application.make("view").add_namespaced_location(
+                        template_path, f"{module_name}.{template_path}/templates"
+                    )
+                    
+            self.application.make("commands").add(ModuleInstallCommand(self.application)).add(ModuleCreateCommand(self.application))

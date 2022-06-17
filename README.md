@@ -1,7 +1,7 @@
-# masonite_modules
+# Masonite Modules
 
 <p align="center">
-    <img src="https://banners.beyondco.de/masonite_modules.png?theme=light&packageManager=pip+install&packageName=masonite-modules&pattern=topography&style=style_1&description=Modularize your masonite project&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Fgblobscdn.gitbook.com%2Fspaces%2F-L9uc-9XAlqhXkBwrLMA%2Favatar.png">
+<img src="https://banners.beyondco.de/Masonite%20Modules.png?theme=light&packageManager=pip+install&packageName=masonite-modules&pattern=charlieBrown&style=style_2&description=Modularize+your+masonite+application.&md=1&showWatermark=1&fontSize=100px&images=adjustments&widths=50&heights=50">
 </p>
 
 <p align="center">
@@ -46,84 +46,44 @@ PROVIDERS = [
 ]
 ```
 
-Then you can publish the package resources (if needed) by doing:
+Publish the package resources by doing:
 
 ```bash
-python craft package:publish masonite_modules
+python craft package:publish modules
 ```
+
+The default modules location will be `modules` in the root directory of your project. But if you want your own custom name then, update the module name in `config/modules.py` to your desired module path name.
+
+```python
+NAME=modules
+```
+
+## Installation
+
+Once you finish publishing package, you need to install the modules by doing:
+
+```bash
+$ python craft module:install
+```
+
+Finally, you will see the modules directory created in your project root.
 
 ## Usage
 
-We need a modules directory to store our modules. So create a directory called `modules` in your project root:
+To create the module, simply run:
 
 ```bash
-$ mkdir modules
+$ python craft module:create <module_name>
+
+# Example
+$ python craft module:create blog
 ```
 
-Now, create a `__init__.py` file in the `modules` directory and add the following to it:
+The above command will create a new module called `blogs` in the `modules` directory. It will also create all the necessary files and directories inside `blogs` so you can start working on your module.
 
-```python
-import os
-PATH = os.path.dirname(os.path.abspath(__file__))
-```
+Finally, visit `/<module_name>` i.e. `/blogs` then you will see a welcome message.
 
-Inside of the `modules` directory, create a directory for each module you want to create.
-For example, if you wanted to create a module called `blogs` you would create a directory called `blogs` inside of the `modules` directory. So the directory structure would look like this:
-
-```
-modules
-└── __init__.py
-└── blogs
-└── categories
-└── ...
-```
-
-You'll also need to create a directory called `routes` inside of each module directory. This is where you will put your route. Just create one file inside of the `routes` directory and name it `route.py` or `web.py` or whatever with `.py` ext.
-
-Lastly, your application directory structure will look like this:
-
-```
-modules
-└── __init__.py
-└── blogs
-  └── controllers
-  └── models
-  └── routes
-    └── route.py
-  └── templates
-└── categories
-  └── controllers
-  └── models
-  └── routes
-    └── route.py
-  └── templates
-└── ...
-```
-
-**Blogs Module Example**
-```python
-# modules.blogs.controllers.BlogController.py
-
-from masonite.views import View
-from masonite.controllers import Controller
-
-class BlogController(Controller):
-    """BlogController Controller Class."""
-
-    def index(self, view: View):
-        return view.render("blogs:index")
-```
-
-```python
-# modules.blogs.routes.route.py
-from masonite.routes import Route
-
-from modules.blogs.controllers.BlogController import BlogController
-
-ROUTES = [
-    Route.get("/blogs", BlogController.index),
-]
-```
+> Enjoy!
 
 ## Contributing
 

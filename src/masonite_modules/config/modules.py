@@ -9,4 +9,4 @@
 |
 """
 
-SETTING = "some value"
+NAME = "modules"
