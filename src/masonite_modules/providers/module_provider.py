@@ -2,7 +2,7 @@
 
 from masonite.packages import PackageProvider
 
-from src.masonite_modules.masonite_module import MasoniteModule
+from ..masonite_module import MasoniteModule
 
 
 class ModuleProvider(PackageProvider):
