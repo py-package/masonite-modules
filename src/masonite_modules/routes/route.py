@@ -1,4 +1,4 @@
-from src.masonite_modules.masonite_module import MasoniteModule
+from ..masonite_module import MasoniteModule
 
 ROUTES = []
 
