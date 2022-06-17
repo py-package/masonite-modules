@@ -1,5 +1,3 @@
-from masonite.routes import Route
-
 from src.masonite_modules.masonite_module import MasoniteModule
 
 ROUTES = []
@@ -7,4 +5,4 @@ ROUTES = []
 modules = MasoniteModule.get_modules()
 
 for module in modules:
-    ROUTES += getattr(module, 'ROUTES')
+    ROUTES += getattr(module, "ROUTES")

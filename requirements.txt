@@ -1,2 +1,4 @@
 masonite>=4,<5
 masonite-orm>=2,<3
+black==22.3.0
+flake8==4.0.1

@@ -4,8 +4,8 @@ from masonite.packages import PackageProvider
 
 from src.masonite_modules.masonite_module import MasoniteModule
 
-class ModuleProvider(PackageProvider):
 
+class ModuleProvider(PackageProvider):
     def configure(self):
         """Register objects into the Service Container."""
         (

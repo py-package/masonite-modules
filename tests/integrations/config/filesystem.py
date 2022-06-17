@@ -6,7 +6,7 @@ DISKS = {
     "default": "local",
     "local": {
         "driver": "file",
-        "path": base_path("tests/integrations/storage/framework/filesystem")
+        "path": base_path("tests/integrations/storage/framework/filesystem"),
     },
     "s3": {
         "driver": "s3",
@@ -18,7 +18,7 @@ DISKS = {
 
 STATICFILES = {
     # folder          # template alias
-    'tests/integrations/storage/static': 'static/',
-    'tests/integrations/storage/compiled': 'assets/',
-    'tests/integrations/storage/public': '/',
+    "tests/integrations/storage/static": "static/",
+    "tests/integrations/storage/compiled": "assets/",
+    "tests/integrations/storage/public": "/",
 }
