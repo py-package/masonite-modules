@@ -8,7 +8,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version="0.0.3",
+    version="0.0.4",
     packages=[
         "masonite_modules",
         "masonite_modules.commands",
@@ -23,10 +23,10 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     # The project's main homepage.
-    url="https://github.com/yubarajshrestha/masonite-modules",
+    url="https://github.com/py-package/masonite-modules",
     # Author details
     author="Yubaraj Shrestha",
-    author_email="companion.krish@outlook.com",
+    author_email="yubaraj@pypackage.com",
     # Choose your license
     license="MIT license",
     # If your package should include things you specify in your MANIFEST.in file
@@ -39,7 +39,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 5 - Production/Stable",
         # Indicate who your project is intended for
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Build Tools",
@@ -49,7 +49,6 @@ setup(
         "Operating System :: OS Independent",
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
