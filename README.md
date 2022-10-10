@@ -21,7 +21,6 @@
 
 Modularize your masonite project.
 
-
 ## Installation
 
 ```bash
@@ -85,16 +84,6 @@ Finally, visit `/<module_name>` i.e. `/blogs` then you will see a welcome messag
 
 > Enjoy!
 
-## Contributing
-
-Please read the [Contributing Documentation](CONTRIBUTING.md) here.
-
-## Maintainers
-
-- [Yubaraj Shrestha](https://www.github.com/yubarajshrestha)
-
 ## License
 
-
 masonite_modules is open-sourced software licensed under the [MIT license](LICENSE).
-

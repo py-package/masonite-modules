@@ -14,4 +14,3 @@ dist
 .env
 *.db
 src/masonite_masonite_modules.egg-info
-modules/*

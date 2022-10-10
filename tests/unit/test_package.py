@@ -1,6 +1,6 @@
 from masonite.tests import TestCase
 
 
-class Testmasonite_modules(TestCase):
-    def test_example(self):
-        self.assertTrue(True)
+class TestMasoniteModules(TestCase):
+    def test_module_route_exists(self):
+        return self.get('/blogs').assertIsStatus(200)
